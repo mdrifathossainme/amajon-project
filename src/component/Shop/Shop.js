@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import'./Shop.css'
+import { addToDb } from '../../utilities/fakedb';
 
 const Shop = () => {
     const [products,serproduct]=useState([])
@@ -15,6 +16,7 @@ const Shop = () => {
     const addTocart=(product)=>{
         const newCart=[...cart, product]
         setCount(newCart)
+        addToDb(product.id)
     
     }
     return (
